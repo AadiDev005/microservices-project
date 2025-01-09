@@ -1,0 +1,64 @@
+# Microservices Project
+
+This repository contains a microservices-based architecture with the following services:
+
+- **Job Service**: Manages job postings and job-related operations.
+- **Company Service**: Handles company-related information and operations.
+- **Review Service**: Allows users to submit and manage reviews for companies and jobs.
+- **Config Server**: A centralized configuration server for managing properties and settings for all microservices.
+
+---
+
+## Services Overview
+
+### **1. Job Service**
+- **Description**: Handles job postings, job searches, and job details.
+- **Features**:
+  - Add new job postings.
+  - Search for jobs based on filters.
+  - Update and delete job listings.
+- **Dependencies**:
+  - Database: PostgreSQL
+  - Communication: REST APIs
+
+---
+
+### **2. Company Service**
+- **Description**: Manages company information such as profiles, details, and company-related operations.
+- **Features**:
+  - Add and update company profiles.
+  - Retrieve company information.
+  - Manage company-specific settings.
+- **Dependencies**:
+  - Database: PostgreSQL
+  - Communication: REST APIs
+
+---
+
+### **3. Review Service**
+- **Description**: Manages reviews for jobs and companies.
+- **Features**:
+  - Users can submit reviews for companies and jobs.
+  - Fetch and display reviews with ratings.
+  - Manage and update user-submitted reviews.
+- **Dependencies**:
+  - Database: PostgreSQL
+  - Communication: REST APIs
+
+---
+
+### **4. Config Server**
+- **Description**: Centralized configuration server that provides configuration properties for all microservices.
+- **Features**:
+  - Centralized property management.
+  - Environment-specific configuration (e.g., `dev`, `test`, `prod`).
+  - Secure and consistent configuration delivery.
+- **Dependencies**:
+  - Spring Cloud Config
+  - Git repository to store configuration files.
+
+---
+
+## Directory Structure
+
+
