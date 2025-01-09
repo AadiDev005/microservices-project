@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: review
+  labels:
+    app: review
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: review
+  template:
+    metadata:
+      labels:
+        app: review
+    spec:
+      containers:
+        - name: review
+          image: aadipvt005/reviewms:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8083
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: k8s
+          resources:
+            requests:
+              memory: "512Mi"  # Requested memory (adjust if needed)
+              cpu: "500m"      # Requested CPU (adjust if needed)
+            limits:
+              memory: "1Gi"    # Maximum memory the container can use (adjust if needed)
+              cpu: "1000m"     # Maximum CPU the container can use (adjust if needed)
+      restartPolicy: Always

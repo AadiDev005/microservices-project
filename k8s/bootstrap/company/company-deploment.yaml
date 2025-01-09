@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: company
+  labels:
+    app: company
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: company
+  template:
+    metadata:
+      labels:
+        app: company
+    spec:
+      containers:
+        - name: company
+          image: aadipvt005/companyms:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: k8s
+          resources:
+            requests:
+              memory: "512Mi"  # Adjust based on requirements
+              cpu: "500m"      # Adjust based on requirements
+            limits:
+              memory: "1Gi"    # Maximum memory the container can use
+              cpu: "1000m"     # Maximum CPU the container can use
+      restartPolicy: Always
